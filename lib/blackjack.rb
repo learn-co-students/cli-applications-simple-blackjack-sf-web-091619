@@ -16,8 +16,7 @@ def prompt_user
 end
 
 def get_user_input
-  input = nil
-  gets input
+  return gets.chomp
 end
 
 def end_game(total)
