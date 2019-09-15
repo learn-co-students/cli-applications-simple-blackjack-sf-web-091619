@@ -21,12 +21,10 @@ def get_user_input
 end
 
 def end_game(total)
-  # code #end_game here
   puts "Sorry, you hit #{total}. Thanks for playing!"
 end
 
 def initial_round
-  # code #initial_round here
   hand = 0
   2.times { hand += deal_card }
   puts "Your cards add up to #{hand}"
@@ -55,8 +53,12 @@ end
 #####################################################
 
 def runner
-  
   welcome
-  initial_round
+  cards = initial_round
+  until cards > 21
+    cards = hit?(cards)
+    display_card_total(cards)
+  end
+  end_game(cards)
 end
     
