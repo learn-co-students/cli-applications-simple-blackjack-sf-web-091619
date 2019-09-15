@@ -33,15 +33,20 @@ def initial_round
   hand
 end
 
-def hit?(variable)
-  # code hit? here
+def hit?(card_total)
   prompt_user
-  get_user_input
-  return variable
+  choise = get_user_input
+  if choise == "h"
+    deal_card + card_total
+  elsif choise  == "s"
+    card_total
+  else
+    invalid_command
+    hit?(card_total)
+  end
 end
 
 def invalid_command
-  # code invalid_command here
   puts "Please enter a valid command"
 end
 
@@ -50,6 +55,8 @@ end
 #####################################################
 
 def runner
-  # code runner here
+  
+  welcome
+  initial_round
 end
     
